@@ -10,9 +10,10 @@ firebaseconfig = {
 firebase = pyrebase.initialize_app(firebaseconfig)
 
 db = firebase.database()
-keys = db.get().val().keys()
-
-for key in keys:
-    print "removing: ",key
-    db.child(key).remove()
-
+try:
+    keys = db.get().val().keys()
+    for key in keys:
+        print "removing: ",key
+        db.child(key).remove()
+except Exception,e:
+    print "Exception: ",e
