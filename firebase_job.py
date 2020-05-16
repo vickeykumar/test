@@ -19,3 +19,5 @@ try:
         db.child(key).remove()
 except Exception,e:
     print datetime.now().strftime(fmt),"Exception: ",e
+
+# 5 11 * * 5 /usr/local/scripts/firebase_job.py > /tmp/crontab_status
